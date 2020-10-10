@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValorAPI.Lib.Connection", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValorAPI.Lib.Connection.Tests", "ValorAPI.Lib.Connection.Tests\ValorAPI.Lib.Connection.Tests.csproj", "{0C9EC710-2355-4662-ACBD-866B040EE5BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValorAPI.Console", "ValorAPI.Console\ValorAPI.Console.csproj", "{C991ABE7-85C7-4337-945F-9DA3F79CAD7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValorAPI.Console", "ValorAPI.Console\ValorAPI.Console.csproj", "{C991ABE7-85C7-4337-945F-9DA3F79CAD7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValorAPI.Lib.Connection.Cache", "ValorAPI.Lib.Connection.Cache\ValorAPI.Lib.Connection.Cache.csproj", "{9FDA7508-6AD0-4B9D-BD4E-5D7D5F4AC761}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C991ABE7-85C7-4337-945F-9DA3F79CAD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C991ABE7-85C7-4337-945F-9DA3F79CAD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C991ABE7-85C7-4337-945F-9DA3F79CAD7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDA7508-6AD0-4B9D-BD4E-5D7D5F4AC761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDA7508-6AD0-4B9D-BD4E-5D7D5F4AC761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDA7508-6AD0-4B9D-BD4E-5D7D5F4AC761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDA7508-6AD0-4B9D-BD4E-5D7D5F4AC761}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
