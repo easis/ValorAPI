@@ -7,6 +7,7 @@ using System.Net;
 using ValorAPI.Lib.Data.DTO;
 using ValorAPI.Lib.Data.Constant;
 using System.Net.Http;
+using ValorAPI.Lib.Connection.Event;
 
 namespace ValorAPI.Lib.Connection
 {
@@ -106,7 +107,7 @@ namespace ValorAPI.Lib.Connection
             string response = string.Empty;
 
             // un evento ha proporcionado un cuerpo (cache?)
-            if (string.IsNullOrEmpty(clientRequest.Body))
+            if (string.IsNullOrEmpty(clientRequest.ResponseContent))
             {
                 // aquí se seleccionará la key del keyring
                 string apiKey = this.Key;
@@ -118,7 +119,7 @@ namespace ValorAPI.Lib.Connection
                 {
                     response = await httpResponse?.Content?.ReadAsStringAsync();
 
-                    clientRequest.Body = response;
+                    clientRequest.ResponseContent = response;
 
                     await this.OnCompletedRequestAsync(clientRequest);
                     this.OnCompletedRequest(clientRequest);
@@ -134,12 +135,12 @@ namespace ValorAPI.Lib.Connection
                 }
             } else
             {
-                response = clientRequest.Body;
+                response = clientRequest.ResponseContent;
             }
 
             await this.OnSuccessRequestAsync(clientRequest);
             this.OnSuccessRequest(clientRequest);
-
+            System.IO.File.WriteAllText(@"P:\C#\Content.json", response);
             var responseDto = JsonConvert.DeserializeObject<T>(response);
             return responseDto;
         }
