@@ -53,6 +53,12 @@ namespace ValorAPI.Lib.Connection
             this.Key = key;
         }
 
+        public Client(Key key)
+        {
+            this.Region = key.Region;
+            this.Key = key.ApiKey;
+        }
+
         /// <summary>
         /// Crea la URL usada para la conexión a la API
         /// </summary>
@@ -97,19 +103,45 @@ namespace ValorAPI.Lib.Connection
             await this.OnBeforeRequestAsync(clientRequest);
             this.OnBeforeRequest(clientRequest);
 
+            string response = string.Empty;
+
             // un evento ha proporcionado un cuerpo (cache?)
             if (string.IsNullOrEmpty(clientRequest.Body))
             {
-                await this.OnCompletedRequestAsync(clientRequest);
-                this.OnCompletedRequest(clientRequest);
+                // aquí se seleccionará la key del keyring
+                string apiKey = this.Key;
+
+                this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-Riot-Token", apiKey);
+
+                var httpResponse = await this.HttpClient.GetAsync(url);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    response = await httpResponse?.Content?.ReadAsStringAsync();
+
+                    clientRequest.Body = response;
+
+                    await this.OnCompletedRequestAsync(clientRequest);
+                    this.OnCompletedRequest(clientRequest);
+                } else
+                {
+                    response = await httpResponse?.Content?.ReadAsStringAsync();
+                    var errorResponseDto = JsonConvert.DeserializeObject<ErrorResponseDto>(response);
+                    var errorStatusResponseDto = errorResponseDto.status;
+
+                    var clientRequestError = new ClientRequestErrorEventArgs(errorStatusResponseDto.status_code, errorStatusResponseDto.message);
+                    await this.OnErrorRequestAsync(clientRequestError);
+                    this.OnErrorRequest(clientRequestError);
+                }
+            } else
+            {
+                response = clientRequest.Body;
             }
 
             await this.OnSuccessRequestAsync(clientRequest);
             this.OnSuccessRequest(clientRequest);
 
-            string responseJson = @"{ version: 'test' }";
-            var response = JsonConvert.DeserializeObject<T>(responseJson);
-            return response;
+            var responseDto = JsonConvert.DeserializeObject<T>(response);
+            return responseDto;
         }
     }
 }

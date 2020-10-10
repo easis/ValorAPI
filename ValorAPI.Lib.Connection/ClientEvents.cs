@@ -13,6 +13,18 @@ namespace ValorAPI.Lib.Connection
         public string Body { get; set; }
     }
 
+    public class ClientRequestErrorEventArgs : EventArgs
+    {
+        public int StatusCode { get; private set; }
+        public string Message { get; private set; }
+
+        public ClientRequestErrorEventArgs(int statusCode, string message)
+        {
+            this.StatusCode = statusCode;
+            this.Message = message;
+        }
+    }
+
     public partial class Client
     {
         #region BeforeRequest
@@ -41,14 +53,14 @@ namespace ValorAPI.Lib.Connection
         #endregion
 
         #region ErrorRequest
-        public event AsyncEventHandler<ClientRequestEventArgs> ErrorRequestAsync;
-        async private Task OnErrorRequestAsync(ClientRequestEventArgs e)
+        public event AsyncEventHandler<ClientRequestErrorEventArgs> ErrorRequestAsync;
+        async private Task OnErrorRequestAsync(ClientRequestErrorEventArgs e)
         {
             ErrorRequestAsync?.InvokeAsync(this, e);
         }
 
         public event EventHandler ErrorRequest;
-        protected virtual void OnErrorRequest(ClientRequestEventArgs e)
+        protected virtual void OnErrorRequest(ClientRequestErrorEventArgs e)
         {
             ErrorRequest?.Invoke(this, e);
         }
