@@ -3,28 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using ValorAPI.Lib.Connection.Event;
 
 namespace ValorAPI.Lib.Connection
 {
-
-    public class ClientRequestEventArgs : EventArgs
-    {
-        public string Url { get; set; }
-        public string Body { get; set; }
-    }
-
-    public class ClientRequestErrorEventArgs : EventArgs
-    {
-        public int StatusCode { get; private set; }
-        public string Message { get; private set; }
-
-        public ClientRequestErrorEventArgs(int statusCode, string message)
-        {
-            this.StatusCode = statusCode;
-            this.Message = message;
-        }
-    }
-
     public partial class Client
     {
         #region BeforeRequest
