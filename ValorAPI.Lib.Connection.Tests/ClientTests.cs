@@ -20,7 +20,7 @@ namespace ValorAPI.Lib.Connection.Tests
 
             Assert.ThrowsException<ArgumentException>(() => client.BuildUrl(null));
 
-            var nullRegionClient = new Client(null);
+            var nullRegionClient = new Client(null, null);
             Assert.ThrowsException<ArgumentException>(() => nullRegionClient.BuildUrl(contentsEndpoint));
         }
     }

@@ -35,29 +35,11 @@ namespace ValorAPI.Lib.Connection
         public Region Region { get; private set; }
 
         public string Key { get; private set; }
-        public Keyring Keyring { get; private set; }
-
-        public Client(Region region)
-        {
-            this.Region = region;
-        }
-
-        public Client(Region region, Keyring keyring)
-        {
-            this.Region = region;
-            this.Keyring = keyring;
-        }
 
         public Client(Region region, string key)
         {
             this.Region = region;
             this.Key = key;
-        }
-
-        public Client(Key key)
-        {
-            this.Region = key.Region;
-            this.Key = key.ApiKey;
         }
 
         /// <summary>
