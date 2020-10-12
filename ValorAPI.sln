@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValorAPI.Console", "ValorAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValorAPI.Lib.Connection.Cache", "ValorAPI.Lib.Connection.Cache\ValorAPI.Lib.Connection.Cache.csproj", "{9FDA7508-6AD0-4B9D-BD4E-5D7D5F4AC761}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValorAPI.Lib.Connection.RateLimiter", "ValorAPI.Lib.Connection.RateLimiter\ValorAPI.Lib.Connection.RateLimiter.csproj", "{53721815-DF82-4305-8B7A-6915459654AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValorAPI.Lib.Connection.RateLimiter", "ValorAPI.Lib.Connection.RateLimiter\ValorAPI.Lib.Connection.RateLimiter.csproj", "{53721815-DF82-4305-8B7A-6915459654AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4CEAA3C-F697-4EA4-9B37-BDDA8A87C173}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
