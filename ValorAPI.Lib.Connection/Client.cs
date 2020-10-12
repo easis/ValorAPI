@@ -36,10 +36,17 @@ namespace ValorAPI.Lib.Connection
 
         public string Key { get; private set; }
 
+        public JsonSerializerSettings Serializer { get; set; }
         public Client(Region region, string key)
         {
             this.Region = region;
             this.Key = key;
+
+            this.Serializer = new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.None
+            };
         }
 
         /// <summary>
@@ -78,9 +85,17 @@ namespace ValorAPI.Lib.Connection
                 throw new InvalidUrlException();
             }
 
+            var requestBody = JsonConvert.SerializeObject(endpoint, this.Serializer);
+            if(requestBody == "{}") // json vacío
+            {
+                requestBody = string.Empty;
+            }
+
             var clientRequest = new ClientRequestEventArgs()
             {
-                Url = url
+                Url = url,
+                Endpoint = endpoint,
+                RequestContent = requestBody
             };
 
             await this.OnBeforeRequestAsync(clientRequest);
@@ -91,10 +106,8 @@ namespace ValorAPI.Lib.Connection
             // un evento ha proporcionado un cuerpo (cache?)
             if (string.IsNullOrEmpty(clientRequest.ResponseContent))
             {
-                // aquí se seleccionará la key del keyring
-                string apiKey = this.Key;
 
-                this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-Riot-Token", apiKey);
+                this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-Riot-Token", this.Key);
 
                 var httpResponse = await this.HttpClient.GetAsync(url);
                 if (httpResponse.IsSuccessStatusCode)
@@ -122,7 +135,7 @@ namespace ValorAPI.Lib.Connection
 
             await this.OnSuccessRequestAsync(clientRequest);
             this.OnSuccessRequest(clientRequest);
-            System.IO.File.WriteAllText(@"P:\C#\Content.json", response);
+
             var responseDto = JsonConvert.DeserializeObject<T>(response);
             return responseDto;
         }
