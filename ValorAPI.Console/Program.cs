@@ -23,16 +23,16 @@ namespace ValorAPI.Console
             Debug.WriteLine($"[~] {System.AppDomain.CurrentDomain.FriendlyName} - START");
 
             var region = Region.EUROPE;
-            var key = "RGAPI-0b24e053-e97d-47b9-a725-d3cd9c9bf3a8";
+            var key = "RGAPI-a6dbecf6-e05b-4ca4-aa82-0eae6e5b666a";
+            var databasePath = @"P:\C#\cache.db";
 
             var client = new Client(region, key);
-            client.SetCache(@"P:\C#\cache.db");
+            client.SetCache(databasePath);
 
             var rateLimiterSettings = new RateLimiterSettings();
-            rateLimiterSettings.AddRateLimit(
-                (IAwaitableConstraint) TimeLimiter.GetFromMaxCountByInterval(20, TimeSpan.FromSeconds(1)),
-                (IAwaitableConstraint)TimeLimiter.GetFromMaxCountByInterval(100, TimeSpan.FromMinutes(2))
-            );
+            rateLimiterSettings.AddRateLimit(20, TimeSpan.FromSeconds(1));
+            rateLimiterSettings.AddRateLimit(100, TimeSpan.FromMinutes(2));
+
             rateLimiterSettings.EnableRateLimiter(client);
 
             Debug.WriteLine($"[I] Current region: {region}");
@@ -48,9 +48,13 @@ namespace ValorAPI.Console
                 Debug.WriteLine($"[E] ({clientRequestError.StatusCode}) {clientRequestError.Message}");
             };
 
-            var contentsEndpoint = new ContentsEndpoint();
+            var contentsEndpoint = new ContentsEndpoint()
+            {
+                locale = Locale.ES_ES
+            };
+
             var contentResponse = await client.GetAsync<ContentDto>(contentsEndpoint);
-            Debug.WriteLine($"version: {contentResponse.version}");
+            Debug.WriteLine($"First gamemode: {contentResponse.gameModes.First().name}");
 
             Debug.WriteLine($"[~] {System.AppDomain.CurrentDomain.FriendlyName} - END");
         }
