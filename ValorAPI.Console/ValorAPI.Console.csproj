@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ValorAPI.Lib.Connection.Cache\ValorAPI.Lib.Connection.Cache.csproj" />
+    <ProjectReference Include="..\ValorAPI.Lib.Connection.RateLimiter\ValorAPI.Lib.Connection.RateLimiter.csproj" />
     <ProjectReference Include="..\ValorAPI.Lib.Connection\ValorAPI.Lib.Connection.csproj" />
     <ProjectReference Include="..\ValorAPI.Lib.Data\ValorAPI.Lib.Data.csproj" />
   </ItemGroup>

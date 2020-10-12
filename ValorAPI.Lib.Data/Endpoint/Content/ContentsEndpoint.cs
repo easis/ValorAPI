@@ -1,15 +1,10 @@
-﻿using System;
-using ValorAPI.Lib.Data.Constant;
-using ValorAPI.Lib.Data.DTO.Content;
+﻿using Newtonsoft.Json;
 
 namespace ValorAPI.Lib.Data.Endpoint.Content
 {
+    [EndpointType(EndpointType.Query), EndpointPath("content", "contents")]
     public class ContentsEndpoint : IEndpoint
     {
-        public override string Name => "contents";
-        public override string Path => "content";
-
-        [Optional]
-        public Locale locale;
+        public string locale;
     }
 }

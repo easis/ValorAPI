@@ -5,46 +5,148 @@
         // Referencia: https://developer.riotgames.com/docs/lol#data-dragon_data-assets
         // Regex:
         //  - Búsqueda:         ^(.+?)[\s]+(.+?)$
-        //  - Sustitución:      public static readonly Locale \U\1\E = new Locale\("\1", "\2"\);
+        //  - Sustitución:      /// <summary>\r\n/// \2\r\n/// </summary>\r\npublic static readonly string \U\1\E = "\1";
 
-        public static readonly Locale CS_CZ = new Locale("cs_CZ", "Czech (Czech Republic)");
-        public static readonly Locale EL_GR = new Locale("el_GR", "Greek (Greece)");
-        public static readonly Locale PL_PL = new Locale("pl_PL", "Polish (Poland)");
-        public static readonly Locale RO_RO = new Locale("ro_RO", "Romanian (Romania)");
-        public static readonly Locale HU_HU = new Locale("hu_HU", "Hungarian (Hungary)");
-        public static readonly Locale EN_GB = new Locale("en_GB", "English (United Kingdom)");
-        public static readonly Locale DE_DE = new Locale("de_DE", "German (Germany)");
-        public static readonly Locale ES_ES = new Locale("es_ES", "Spanish (Spain)");
-        public static readonly Locale IT_IT = new Locale("it_IT", "Italian (Italy)");
-        public static readonly Locale FR_FR = new Locale("fr_FR", "French (France)");
-        public static readonly Locale JA_JP = new Locale("ja_JP", "Japanese (Japan)");
-        public static readonly Locale KO_KR = new Locale("ko_KR", "Korean (Korea)");
-        public static readonly Locale ES_MX = new Locale("es_MX", "Spanish (Mexico)");
-        public static readonly Locale ES_AR = new Locale("es_AR", "Spanish (Argentina)");
-        public static readonly Locale PT_BR = new Locale("pt_BR", "Portuguese (Brazil)");
-        public static readonly Locale EN_US = new Locale("en_US", "English (United States)");
-        public static readonly Locale EN_AU = new Locale("en_AU", "English (Australia)");
-        public static readonly Locale RU_RU = new Locale("ru_RU", "Russian (Russia)");
-        public static readonly Locale TR_TR = new Locale("tr_TR", "Turkish (Turkey)");
-        public static readonly Locale MS_MY = new Locale("ms_MY", "Malay (Malaysia)");
-        public static readonly Locale EN_PH = new Locale("en_PH", "English (Republic of the Philippines)");
-        public static readonly Locale EN_SG = new Locale("en_SG", "English (Singapore)");
-        public static readonly Locale TH_TH = new Locale("th_TH", "Thai (Thailand)");
-        public static readonly Locale VN_VN = new Locale("vn_VN", "Vietnamese (Viet Nam)");
-        public static readonly Locale ID_ID = new Locale("id_ID", "Indonesian (Indonesia)");
-        public static readonly Locale ZH_MY = new Locale("zh_MY", "Chinese (Malaysia)");
-        public static readonly Locale ZH_CN = new Locale("zh_CN", "Chinese (China)");
-        public static readonly Locale ZH_TW = new Locale("zh_TW", "Chinese (Taiwan)");
+        /// <summary>
+        /// Czech (Czech Republic)
+        /// </summary>
+        public static readonly string CS_CZ = "cs-CZ";
 
-        public string Name { get; private set; }
-        public string FullName { get; private set; }
+        /// <summary>
+        /// Greek (Greece)
+        /// </summary>
+        public static readonly string EL_GR = "el-GR";
 
-        public Locale(string name, string fullName)
-        {
-            this.Name = name;
-            this.FullName = FullName;
-        }
+        /// <summary>
+        /// Polish (Poland)
+        /// </summary>
+        public static readonly string PL_PL = "pl-PL";
 
-        public override string ToString() => this.Name;
+        /// <summary>
+        /// Romanian (Romania)
+        /// </summary>
+        public static readonly string RO_RO = "ro-RO";
+
+        /// <summary>
+        /// Hungarian (Hungary)
+        /// </summary>
+        public static readonly string HU_HU = "hu-HU";
+
+        /// <summary>
+        /// English (United Kingdom)
+        /// </summary>
+        public static readonly string EN_GB = "en-GB";
+
+        /// <summary>
+        /// German (Germany)
+        /// </summary>
+        public static readonly string DE_DE = "de-DE";
+
+        /// <summary>
+        /// Spanish (Spain)
+        /// </summary>
+        public static readonly string ES_ES = "es-ES";
+
+        /// <summary>
+        /// Italian (Italy)
+        /// </summary>
+        public static readonly string IT_IT = "it-IT";
+
+        /// <summary>
+        /// French (France)
+        /// </summary>
+        public static readonly string FR_FR = "fr-FR";
+
+        /// <summary>
+        /// Japanese (Japan)
+        /// </summary>
+        public static readonly string JA_JP = "ja-JP";
+
+        /// <summary>
+        /// Korean (Korea)
+        /// </summary>
+        public static readonly string KO_KR = "ko-KR";
+
+        /// <summary>
+        /// Spanish (Mexico)
+        /// </summary>
+        public static readonly string ES_MX = "es-MX";
+
+        /// <summary>
+        /// Spanish (Argentina)
+        /// </summary>
+        public static readonly string ES_AR = "es-AR";
+
+        /// <summary>
+        /// Portuguese (Brazil)
+        /// </summary>
+        public static readonly string PT_BR = "pt-BR";
+
+        /// <summary>
+        /// English (United States)
+        /// </summary>
+        public static readonly string EN_US = "en-US";
+
+        /// <summary>
+        /// English (Australia)
+        /// </summary>
+        public static readonly string EN_AU = "en-AU";
+
+        /// <summary>
+        /// Russian (Russia)
+        /// </summary>
+        public static readonly string RU_RU = "ru-RU";
+
+        /// <summary>
+        /// Turkish (Turkey)
+        /// </summary>
+        public static readonly string TR_TR = "tr-TR";
+
+        /// <summary>
+        /// Malay (Malaysia)
+        /// </summary>
+        public static readonly string MS_MY = "ms-MY";
+
+        /// <summary>
+        /// English (Republic of the Philippines)
+        /// </summary>
+        public static readonly string EN_PH = "en-PH";
+
+        /// <summary>
+        /// English (Singapore)
+        /// </summary>
+        public static readonly string EN_SG = "en-SG";
+
+        /// <summary>
+        /// Thai (Thailand)
+        /// </summary>
+        public static readonly string TH_TH = "th-TH";
+
+        /// <summary>
+        /// Vietnamese (Viet Nam)
+        /// </summary>
+        public static readonly string VN_VN = "vn-VN";
+
+        /// <summary>
+        /// Indonesian (Indonesia)
+        /// </summary>
+        public static readonly string ID_ID = "id-ID";
+
+        /// <summary>
+        /// Chinese (Malaysia)
+        /// </summary>
+        public static readonly string ZH_MY = "zh-MY";
+
+        /// <summary>
+        /// Chinese (China)
+        /// </summary>
+        public static readonly string ZH_CN = "zh-CN";
+
+        /// <summary>
+        /// Chinese (Taiwan)
+        /// </summary>
+        public static readonly string ZH_TW = "zh-TW";
+
     }
+
 }

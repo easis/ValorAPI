@@ -3,16 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using ValorAPI.Lib.Connection.Event;
 
 namespace ValorAPI.Lib.Connection
 {
-
-    public class ClientRequestEventArgs : EventArgs
-    {
-        public string Url { get; set; }
-        public string Body { get; set; }
-    }
-
     public partial class Client
     {
         #region BeforeRequest
@@ -41,14 +35,14 @@ namespace ValorAPI.Lib.Connection
         #endregion
 
         #region ErrorRequest
-        public event AsyncEventHandler<ClientRequestEventArgs> ErrorRequestAsync;
-        async private Task OnErrorRequestAsync(ClientRequestEventArgs e)
+        public event AsyncEventHandler<ClientRequestErrorEventArgs> ErrorRequestAsync;
+        async private Task OnErrorRequestAsync(ClientRequestErrorEventArgs e)
         {
             ErrorRequestAsync?.InvokeAsync(this, e);
         }
 
         public event EventHandler ErrorRequest;
-        protected virtual void OnErrorRequest(ClientRequestEventArgs e)
+        protected virtual void OnErrorRequest(ClientRequestErrorEventArgs e)
         {
             ErrorRequest?.Invoke(this, e);
         }
