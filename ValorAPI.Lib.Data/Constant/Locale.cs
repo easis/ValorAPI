@@ -10,142 +10,142 @@
         /// <summary>
         /// Czech (Czech Republic)
         /// </summary>
-        public static readonly string CS_CZ = "cs_CZ";
+        public static readonly string CS_CZ = "cs-CZ";
 
         /// <summary>
         /// Greek (Greece)
         /// </summary>
-        public static readonly string EL_GR = "el_GR";
+        public static readonly string EL_GR = "el-GR";
 
         /// <summary>
         /// Polish (Poland)
         /// </summary>
-        public static readonly string PL_PL = "pl_PL";
+        public static readonly string PL_PL = "pl-PL";
 
         /// <summary>
         /// Romanian (Romania)
         /// </summary>
-        public static readonly string RO_RO = "ro_RO";
+        public static readonly string RO_RO = "ro-RO";
 
         /// <summary>
         /// Hungarian (Hungary)
         /// </summary>
-        public static readonly string HU_HU = "hu_HU";
+        public static readonly string HU_HU = "hu-HU";
 
         /// <summary>
         /// English (United Kingdom)
         /// </summary>
-        public static readonly string EN_GB = "en_GB";
+        public static readonly string EN_GB = "en-GB";
 
         /// <summary>
         /// German (Germany)
         /// </summary>
-        public static readonly string DE_DE = "de_DE";
+        public static readonly string DE_DE = "de-DE";
 
         /// <summary>
         /// Spanish (Spain)
         /// </summary>
-        public static readonly string ES_ES = "es_ES";
+        public static readonly string ES_ES = "es-ES";
 
         /// <summary>
         /// Italian (Italy)
         /// </summary>
-        public static readonly string IT_IT = "it_IT";
+        public static readonly string IT_IT = "it-IT";
 
         /// <summary>
         /// French (France)
         /// </summary>
-        public static readonly string FR_FR = "fr_FR";
+        public static readonly string FR_FR = "fr-FR";
 
         /// <summary>
         /// Japanese (Japan)
         /// </summary>
-        public static readonly string JA_JP = "ja_JP";
+        public static readonly string JA_JP = "ja-JP";
 
         /// <summary>
         /// Korean (Korea)
         /// </summary>
-        public static readonly string KO_KR = "ko_KR";
+        public static readonly string KO_KR = "ko-KR";
 
         /// <summary>
         /// Spanish (Mexico)
         /// </summary>
-        public static readonly string ES_MX = "es_MX";
+        public static readonly string ES_MX = "es-MX";
 
         /// <summary>
         /// Spanish (Argentina)
         /// </summary>
-        public static readonly string ES_AR = "es_AR";
+        public static readonly string ES_AR = "es-AR";
 
         /// <summary>
         /// Portuguese (Brazil)
         /// </summary>
-        public static readonly string PT_BR = "pt_BR";
+        public static readonly string PT_BR = "pt-BR";
 
         /// <summary>
         /// English (United States)
         /// </summary>
-        public static readonly string EN_US = "en_US";
+        public static readonly string EN_US = "en-US";
 
         /// <summary>
         /// English (Australia)
         /// </summary>
-        public static readonly string EN_AU = "en_AU";
+        public static readonly string EN_AU = "en-AU";
 
         /// <summary>
         /// Russian (Russia)
         /// </summary>
-        public static readonly string RU_RU = "ru_RU";
+        public static readonly string RU_RU = "ru-RU";
 
         /// <summary>
         /// Turkish (Turkey)
         /// </summary>
-        public static readonly string TR_TR = "tr_TR";
+        public static readonly string TR_TR = "tr-TR";
 
         /// <summary>
         /// Malay (Malaysia)
         /// </summary>
-        public static readonly string MS_MY = "ms_MY";
+        public static readonly string MS_MY = "ms-MY";
 
         /// <summary>
         /// English (Republic of the Philippines)
         /// </summary>
-        public static readonly string EN_PH = "en_PH";
+        public static readonly string EN_PH = "en-PH";
 
         /// <summary>
         /// English (Singapore)
         /// </summary>
-        public static readonly string EN_SG = "en_SG";
+        public static readonly string EN_SG = "en-SG";
 
         /// <summary>
         /// Thai (Thailand)
         /// </summary>
-        public static readonly string TH_TH = "th_TH";
+        public static readonly string TH_TH = "th-TH";
 
         /// <summary>
         /// Vietnamese (Viet Nam)
         /// </summary>
-        public static readonly string VN_VN = "vn_VN";
+        public static readonly string VN_VN = "vn-VN";
 
         /// <summary>
         /// Indonesian (Indonesia)
         /// </summary>
-        public static readonly string ID_ID = "id_ID";
+        public static readonly string ID_ID = "id-ID";
 
         /// <summary>
         /// Chinese (Malaysia)
         /// </summary>
-        public static readonly string ZH_MY = "zh_MY";
+        public static readonly string ZH_MY = "zh-MY";
 
         /// <summary>
         /// Chinese (China)
         /// </summary>
-        public static readonly string ZH_CN = "zh_CN";
+        public static readonly string ZH_CN = "zh-CN";
 
         /// <summary>
         /// Chinese (Taiwan)
         /// </summary>
-        public static readonly string ZH_TW = "zh_TW";
+        public static readonly string ZH_TW = "zh-TW";
 
     }
 
