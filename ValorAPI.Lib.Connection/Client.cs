@@ -58,9 +58,14 @@ namespace ValorAPI.Lib.Connection
         /// <param name="key"><see cref="Key"/></param>
         public Client(string region, string key)
         {
-            this.HttpClient = new HttpClient();
+            var handler = new HttpClientHandler()
+            {
+                AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+            };
+
+            this.HttpClient = new HttpClient(handler);
             this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Charset", "application/x-www-form-urlencoded; charset=UTF-8");
-            this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate, br");
+            this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate, br"); // to save bandwith
             this.HttpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "https://github.com/easis/ValorAPI :)");
 
             this.Region = region;
