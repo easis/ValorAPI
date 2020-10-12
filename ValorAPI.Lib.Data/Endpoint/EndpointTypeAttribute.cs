@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ValorAPI.Lib.Data.Endpoint.Attribute
+namespace ValorAPI.Lib.Data.Endpoint
 {
     public enum EndpointType
     {
@@ -10,11 +10,11 @@ namespace ValorAPI.Lib.Data.Endpoint.Attribute
     [AttributeUsage(AttributeTargets.Class)]
     public class EndpointTypeAttribute : System.Attribute
     {
-        private EndpointType endpointType;
+        public EndpointType Type { get; private set; }
 
         public EndpointTypeAttribute(EndpointType endpointType)
         {
-            this.endpointType = endpointType;
+            this.Type = endpointType;
         }
     }
 }
